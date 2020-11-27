@@ -1,0 +1,6 @@
+## Interface: 90002
+## Title: DelayedQuestText
+## Author: Jason L Perry
+## Version: 1.0
+
+Core.lua
