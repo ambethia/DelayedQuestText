@@ -44,7 +44,17 @@ function ShowQuest()
     local questDescription, questObjectives = GetQuestLogQuestText()
     local questTitle = C_QuestLog.GetTitleForQuestID(frame.questID)
 
-    frame.text:SetText("|cffffd100" .. questTitle .. "|r|n|n" .. questDescription .. "|n|n|cffffd100Objective|r|n|n" .. questObjectives)
+    local text = "|cffffd100" .. questTitle .. "|r"
+    
+    if questDescription and #questDescription > 0 then
+      text = text .. "|n|n" .. questDescription
+    end
+
+    if questObjectives and #questObjectives > 0 then
+      text = text .. "|n|n|cffffd100Objective|r|n|n" .. questObjectives
+    end
+
+    frame.text:SetText(text)
     frame:SetHeight(frame.text:GetHeight() + TEXT_PADDING * 2)
     
     UIFrameFadeIn(frame, FADE_TIME, 0, 1)
